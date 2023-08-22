@@ -5,12 +5,12 @@ A set of bash scripts to convert Markdown documents to PDF via LaTeX.
 ## Prerequisites
 
 You'll need to install the 2023 version of
-[MacTeX](https://www.tug.org/mactex/), along with
+[BasicTeX](https://www.tug.org/mactex/), along with
 [pandoc](https://pandoc.org/).
 
-If you want to render emoji, you'll also need to install the `emoji`
-package from [CTAN](https://ctan.org/) using the `tlmgr` package
-manager. Don't worry, it comes bundled with MacTeX!
+```bash
+brew install --cask basictex && brew install pandoc
+```
 
 ## Install
 
@@ -24,13 +24,14 @@ git clone git@git.fxdigital.uk:aaronhooper/md2pdf.git
 
 The main script you will want to use is `./bin/run.sh`.
 
-Run the script in the project root with the following:
+Put your Markdown files in `./src`, then run the script in the project
+root with the following:
 
 ```bash
 bin/run.sh src/document.md
 ```
 
-Your freshly pressed PDFs will be saved to `dist` and opened in Preview!
+Your freshly pressed PDF will be saved to `dist` and opened in Preview!
 😎
 
 ## Configuration
@@ -38,10 +39,37 @@ Your freshly pressed PDFs will be saved to `dist` and opened in Preview!
 In `./bin/run.sh`, you can configure `SRC_DIR` to the folder where your
 Markdown is located, and `DIST_DIR` to the folder where you want your
 PDFs to go, both relative to the directory you will run the command in.
+
 For example, if you wish to run the command in the root of the project
 and want your src and dist folders to be located there, then set
 `SRC_DIR` to `"./src"` and `DIST_DIR` to `"./dist"` (the default
 settings).
+
+### Emoji
+
+If you want to render emoji in your docs, you'll need to install the
+`emoji` package from [CTAN](https://ctan.org/) using the `tlmgr` package
+manager.
+
+```bash
+sudo tlmgr install emoji
+```
+
+You'll also need `lualatex` as the PDF engine. Make sure that this is
+set in `./bin/build.sh`. Then, add `\usepackage{emoji}` to the
+frontmatter of your doc.
+
+```markdown
+---
+includes:
+  - \usepackage{emoji}
+---
+```
+
+To insert an emoji into the document, type `\emoji{name}`. Here is [a
+list of
+names](https://ctan.math.washington.edu/tex-archive/macros/luatex/latex/emoji/emoji-doc.pdf#page=3)
+you can use.
 
 ## Gotchas
 
