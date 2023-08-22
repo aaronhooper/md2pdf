@@ -61,7 +61,7 @@ frontmatter of your doc.
 
 ```markdown
 ---
-includes:
+header-includes:
   - \usepackage{emoji}
 ---
 ```
