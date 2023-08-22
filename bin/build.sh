@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
-PDF_FILENAME=$(echo $1 | sed s/\.md$/.pdf/i)
+MD_PATH=$1
+PDF_PATH=$2
 
-pandoc -s $1 --to pdf -o dist/${PDF_FILENAME} --pdf-engine /usr/local/texlive/2023basic/bin/universal-darwin/lualatex -V colorlinks=true
+pandoc -s ${MD_PATH}\
+  -o ${PDF_PATH}\
+  --pdf-engine /usr/local/texlive/2023basic/bin/universal-darwin/lualatex\
+  -V colorlinks=true
+

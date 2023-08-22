@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
-open -na Preview $1
+PDF_PATH=$1
+
+open -na Preview $PDF_PATH
