@@ -24,15 +24,7 @@ git clone git@git.fxdigital.uk:aaronhooper/md2pdf.git
 
 The main script you will want to use is `./bin/run.sh`.
 
-In `./bin/run.sh`, configure `SRC_DIR` to the folder where your Markdown
-is located, and `DIST_DIR` to the folder where you want your PDFs to go,
-both relative to the directory you will run the command in. For example,
-if you wish to run the command in the root of the project and want your
-src and dist folders to be located there, then set `SRC_DIR` to
-`"./src"` and `DIST_DIR` to `"./dist"` (the default setting).
-
-Assuming these defaults, run the script in the project root with the
-following:
+Run the script in the project root with the following:
 
 ```bash
 bin/run.sh src/document.md
@@ -40,6 +32,16 @@ bin/run.sh src/document.md
 
 Your freshly pressed PDFs will be saved to `dist` and opened in Preview!
 😎
+
+## Configuration
+
+In `./bin/run.sh`, you can configure `SRC_DIR` to the folder where your
+Markdown is located, and `DIST_DIR` to the folder where you want your
+PDFs to go, both relative to the directory you will run the command in.
+For example, if you wish to run the command in the root of the project
+and want your src and dist folders to be located there, then set
+`SRC_DIR` to `"./src"` and `DIST_DIR` to `"./dist"` (the default
+settings).
 
 ## Gotchas
 
