@@ -17,7 +17,7 @@ brew install --cask basictex && brew install pandoc
 Clone the repository.
 
 ```bash
-git clone git@git.fxdigital.uk:aaronhooper/md2pdf.git
+git clone git@github.com:aaronhooper/md2pdf.git
 ```
 
 ## Usage
